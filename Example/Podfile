@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LGBPhotoBrowser_Example', :exclusive => true do
+  pod 'LGBPhotoBrowser', :path => '../'
+end
+
+target 'LGBPhotoBrowser_Tests', :exclusive => true do
+  pod 'LGBPhotoBrowser', :path => '../'
+
+  
+end
