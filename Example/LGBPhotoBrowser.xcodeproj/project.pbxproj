@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C9872121CE053B20014F3C6 /* LGBPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C98720E1CE053B20014F3C6 /* LGBPhotoView.m */; };
+		2C9872131CE053B20014F3C6 /* LGBPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9872101CE053B20014F3C6 /* LGBPhotoCell.m */; };
+		2C9872161CE053D80014F3C6 /* BrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9872151CE053D80014F3C6 /* BrowserCell.m */; };
+		2C9872191CE0577C0014F3C6 /* LGBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9872181CE0577C0014F3C6 /* LGBMainViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -38,6 +42,14 @@
 /* Begin PBXFileReference section */
 		0AAAE54F05344AB7DF109E79 /* Pods-LGBPhotoBrowser_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LGBPhotoBrowser_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LGBPhotoBrowser_Example/Pods-LGBPhotoBrowser_Example.release.xcconfig"; sourceTree = "<group>"; };
 		1741AC09C8F1F5BB6443B270 /* Pods-LGBPhotoBrowser_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LGBPhotoBrowser_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LGBPhotoBrowser_Tests/Pods-LGBPhotoBrowser_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C98720E1CE053B20014F3C6 /* LGBPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGBPhotoView.m; sourceTree = "<group>"; };
+		2C98720F1CE053B20014F3C6 /* LGBPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGBPhotoCell.h; sourceTree = "<group>"; };
+		2C9872101CE053B20014F3C6 /* LGBPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGBPhotoCell.m; sourceTree = "<group>"; };
+		2C9872111CE053B20014F3C6 /* LGBPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGBPhotoView.h; sourceTree = "<group>"; };
+		2C9872141CE053D80014F3C6 /* BrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserCell.h; sourceTree = "<group>"; };
+		2C9872151CE053D80014F3C6 /* BrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserCell.m; sourceTree = "<group>"; };
+		2C9872171CE0577C0014F3C6 /* LGBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGBMainViewController.h; sourceTree = "<group>"; };
+		2C9872181CE0577C0014F3C6 /* LGBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGBMainViewController.m; sourceTree = "<group>"; };
 		5B2DA27C7849896F0E4861AD /* Pods_LGBPhotoBrowser_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LGBPhotoBrowser_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* LGBPhotoBrowser_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LGBPhotoBrowser_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,8 +158,16 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* LGBViewController.h */,
 				6003F5A6195388D20070C39A /* LGBViewController.m */,
+				2C9872111CE053B20014F3C6 /* LGBPhotoView.h */,
+				2C98720E1CE053B20014F3C6 /* LGBPhotoView.m */,
+				2C98720F1CE053B20014F3C6 /* LGBPhotoCell.h */,
+				2C9872101CE053B20014F3C6 /* LGBPhotoCell.m */,
+				2C9872141CE053D80014F3C6 /* BrowserCell.h */,
+				2C9872151CE053D80014F3C6 /* BrowserCell.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				2C9872171CE0577C0014F3C6 /* LGBMainViewController.h */,
+				2C9872181CE0577C0014F3C6 /* LGBMainViewController.m */,
 			);
 			name = "Example for LGBPhotoBrowser";
 			path = LGBPhotoBrowser;
@@ -390,9 +410,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9872131CE053B20014F3C6 /* LGBPhotoCell.m in Sources */,
 				6003F59E195388D20070C39A /* LGBAppDelegate.m in Sources */,
+				2C9872191CE0577C0014F3C6 /* LGBMainViewController.m in Sources */,
+				2C9872161CE053D80014F3C6 /* BrowserCell.m in Sources */,
 				6003F5A7195388D20070C39A /* LGBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				2C9872121CE053B20014F3C6 /* LGBPhotoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +491,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -513,12 +537,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LGBPhotoBrowser/LGBPhotoBrowser-Prefix.pch";
 				INFOPLIST_FILE = "LGBPhotoBrowser/LGBPhotoBrowser-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACH_O_TYPE = mh_execute;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -529,12 +557,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LGBPhotoBrowser/LGBPhotoBrowser-Prefix.pch";
 				INFOPLIST_FILE = "LGBPhotoBrowser/LGBPhotoBrowser-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MACH_O_TYPE = mh_execute;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

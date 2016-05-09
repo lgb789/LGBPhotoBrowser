@@ -1,0 +1,6 @@
+framework module LGBPhotoBrowser {
+  umbrella header "LGBPhotoBrowser-umbrella.h"
+
+  export *
+  module * { export * }
+}

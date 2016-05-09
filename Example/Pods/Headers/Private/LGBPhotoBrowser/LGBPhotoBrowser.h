@@ -1,0 +1,1 @@
+../../../../../LGBPhotoBrowser/Classes/LGBPhotoBrowser.h

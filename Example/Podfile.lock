@@ -1,0 +1,25 @@
+PODS:
+  - LGBPhotoBrowser (0.1.0)
+  - YYCache (1.0.3)
+  - YYImage (1.0.1):
+    - YYImage/Core (= 1.0.1)
+  - YYImage/Core (1.0.1)
+  - YYWebImage (1.0.3):
+    - YYCache
+    - YYImage
+
+DEPENDENCIES:
+  - LGBPhotoBrowser (from `../`)
+  - YYWebImage (~> 1.0.3)
+
+EXTERNAL SOURCES:
+  LGBPhotoBrowser:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LGBPhotoBrowser: 38ab87fe5f0ebf508c4ab4857b8860ec3ecdfc14
+  YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
+  YYImage: b41b45bc5f32bfcdf67bdfb9c09da9e9832357c0
+  YYWebImage: 8da75a611fd0d2e0f58a273f9ca0bc731614cb0d
+
+COCOAPODS: 0.39.0

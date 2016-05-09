@@ -1,0 +1,19 @@
+{
+  "name": "LGBPhotoBrowser",
+  "version": "0.1.0",
+  "summary": "A photo browser.",
+  "description": "A simple photo browser",
+  "homepage": "https://github.com/lgb789/LGBPhotoBrowser",
+  "license": "MIT",
+  "authors": {
+    "lgb789": "lgb789@126.com"
+  },
+  "source": {
+    "git": "https://github.com/lgb789/LGBPhotoBrowser.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "LGBPhotoBrowser/Classes/**/*"
+}
