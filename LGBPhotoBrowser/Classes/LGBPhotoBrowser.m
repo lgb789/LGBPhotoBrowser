@@ -108,44 +108,9 @@ static NSString * const kFrameKey = @"frame";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LGBPhotoBrowserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Identifier forIndexPath:indexPath];
+    
+    [self configCell:cell indexPath:indexPath];
     return cell;
-}
-
--(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    LGBPhotoBrowserCell *c = (LGBPhotoBrowserCell *)cell;
-    LGBPhotoModel *model = self.items[indexPath.item];
-    CGRect rect = [self convertRect:model.smallImageView.frame fromView:model.smallImageView];
-//    DLog(@"rect--->%@,%@", NSStringFromCGRect(rect), NSStringFromCGRect(cell.frame));
-
-    if (self.firstShow) {
-        [self.pageControl setCurrentPage:indexPath.item];
-        self.firstShow = NO;
-        c.imageView.frame = rect;
-        c.imageView.imageView.frame = c.imageView.bounds;
-        
-        [UIView animateWithDuration:kAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            [c configCellWithData:model];
-            [c setNeedsLayout];
-            [c layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            
-        }];
-    }else{
-        [c configCellWithData:model];
-        [c setNeedsLayout];
-        [c layoutIfNeeded];
-    }
-    
-    
-    if (c.singleTap == nil) {
-        __weak typeof(self) weakSelf = self;
-        c.singleTap = ^(void){
-           
-            [weakSelf dismiss];
-            
-        };
-    }
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -183,6 +148,43 @@ static NSString * const kFrameKey = @"frame";
 }
 
 #pragma mark - *********************** private methods ***********************
+
+-(void)configCell:(LGBPhotoBrowserCell *)c
+        indexPath:(NSIndexPath *)indexPath
+{
+    LGBPhotoModel *model = self.items[indexPath.item];
+    CGRect rect = [self convertRect:model.smallImageView.frame fromView:model.smallImageView];
+    //    DLog(@"rect--->%@,%@", NSStringFromCGRect(rect), NSStringFromCGRect(cell.frame));
+    
+    if (self.firstShow) {
+        [self.pageControl setCurrentPage:indexPath.item];
+        self.firstShow = NO;
+        c.imageView.frame = rect;
+        c.imageView.imageView.frame = c.imageView.bounds;
+        
+        [UIView animateWithDuration:kAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [c configCellWithData:model];
+            [c setNeedsLayout];
+            [c layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            
+        }];
+    }else{
+        [c configCellWithData:model];
+        [c setNeedsLayout];
+        [c layoutIfNeeded];
+    }
+    
+    
+    if (c.singleTap == nil) {
+        __weak typeof(self) weakSelf = self;
+        c.singleTap = ^(void){
+            
+            [weakSelf dismiss];
+            
+        };
+    }
+}
 
 -(void)cleanZoom
 {

@@ -99,11 +99,12 @@
 -(void)doubleTapHandler:(UITapGestureRecognizer *)recognizer
 {
     self.isScale = !self.isScale;
-//    DLog(@"is scale:%d", self.isScale);
+//    NSLog(@"is scale:%d", self.isScale);
     if (self.isScale) {
         CGPoint point = [recognizer locationInView:self.imageView];
         point = CGPointMake(point.x * (kMaxScale - 1), point.y * (kMaxScale - 1));
 
+        
         [UIView animateWithDuration:0.3 animations:^{
             [self setZoomScale:kMaxScale animated:NO];
             [self setContentOffset:point animated:NO];
@@ -112,8 +113,8 @@
     }else{
         
         [UIView animateWithDuration:0.3 animations:^{
-            [self setZoomScale:kMinScale animated:NO];
             [self setContentOffset:CGPointZero animated:NO];
+            [self setZoomScale:kMinScale animated:NO];
         }];
         
     }
