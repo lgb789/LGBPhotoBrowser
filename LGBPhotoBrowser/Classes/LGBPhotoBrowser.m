@@ -242,7 +242,7 @@ static NSString * const kFrameKey = @"frame";
 
 -(void)setupPage:(NSInteger)page forPageLabel:(UILabel *)pageLabel
 {
-    pageLabel.text = [NSString stringWithFormat:@"%ld/%ld", page + 1, self.items.count];
+    pageLabel.text = [NSString stringWithFormat:@"%ld/%ld", (long)(page + 1), (long)(self.items.count)];
 }
 
 #pragma mark - setter
