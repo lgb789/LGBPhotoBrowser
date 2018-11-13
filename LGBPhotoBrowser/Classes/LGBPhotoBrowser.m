@@ -233,7 +233,7 @@ static NSString * const kFrameKey = @"frame";
             cell.imageView.frame = rect;
             cell.imageView.imageView.frame = cell.imageView.bounds;
         }else{
-            cell.alpha = 0;
+            cell.imageView.alpha = 0;
         }
         
         self.collectionView.backgroundColor = [UIColor clearColor];
