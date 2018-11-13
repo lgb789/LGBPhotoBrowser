@@ -17,6 +17,8 @@
  */
 @property (nonatomic, assign) CGFloat itemSpace;
 
+@property (nonatomic, assign) BOOL showPageLabel;
+
 -(void)setData:(NSArray *)data;
 
 -(void)showItem:(NSUInteger)item;

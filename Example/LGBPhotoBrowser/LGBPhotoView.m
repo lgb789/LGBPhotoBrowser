@@ -102,6 +102,7 @@
     }
     
     LGBPhotoBrowser *browser = [LGBPhotoBrowser new];
+    browser.showPageLabel = YES;
     [browser registerCellClass:[BrowserCell class]];
     [browser setData:models];
     [browser showItem:indexPath.item];

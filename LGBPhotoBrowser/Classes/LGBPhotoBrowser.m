@@ -23,6 +23,7 @@ static NSString * const kFrameKey = @"frame";
 @property (nonatomic, assign) BOOL firstShow;
 @property (nonatomic, assign) BOOL dismissing;
 @property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, strong) UILabel *pageLabel;
 @end
 
 @implementation LGBPhotoBrowser
@@ -73,6 +74,7 @@ static NSString * const kFrameKey = @"frame";
 //        [self.collectionView registerClass:[LGBPhotoBrowserCell class] forCellWithReuseIdentifier:Identifier];
         
         [self addSubview:self.pageControl];
+        [self addSubview:self.pageLabel];
     }
     return self;
 }
@@ -86,6 +88,8 @@ static NSString * const kFrameKey = @"frame";
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentPage inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
     
     self.pageControl.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetHeight(self.bounds) * 0.95);
+    
+    self.pageLabel.frame = CGRectMake(0, CGRectGetHeight(self.bounds) * 0.9, CGRectGetWidth(self.bounds), 35);
     
 //    DLog(@"self frame:%@,%@,%@,%@", NSStringFromCGRect(self.frame), NSStringFromCGSize(self.collectionView.contentSize), NSStringFromCGRect(self.collectionView.frame), NSStringFromCGSize(self.flowLayout.itemSize));
 
@@ -131,6 +135,7 @@ static NSString * const kFrameKey = @"frame";
         [self cleanZoom];
         self.currentPage = page;
         [self.pageControl setCurrentPage:page];
+        [self setupPage:page forPageLabel:self.pageLabel];
     }
     
 }
@@ -153,11 +158,20 @@ static NSString * const kFrameKey = @"frame";
         indexPath:(NSIndexPath *)indexPath
 {
     LGBPhotoModel *model = self.items[indexPath.item];
-    CGRect rect = [self convertRect:model.smallImageView.frame fromView:model.smallImageView];
-    //    DLog(@"rect--->%@,%@", NSStringFromCGRect(rect), NSStringFromCGRect(cell.frame));
     
+    CGRect rect = CGRectZero;
+    
+    if (model.smallImageView) {
+        rect = [self convertRect:model.smallImageView.frame fromView:model.smallImageView];
+    }else{
+        rect = CGRectMake(CGRectGetMidX(self.bounds) - 10, CGRectGetMidY(self.bounds) - 10, 0, 0);
+    }
+    
+    //    DLog(@"rect--->%@,%@", NSStringFromCGRect(rect), NSStringFromCGRect(cell.frame));
+
     if (self.firstShow) {
         [self.pageControl setCurrentPage:indexPath.item];
+        [self setupPage:indexPath.item forPageLabel:self.pageLabel];
         self.firstShow = NO;
         c.imageView.frame = rect;
         c.imageView.imageView.frame = c.imageView.bounds;
@@ -199,13 +213,22 @@ static NSString * const kFrameKey = @"frame";
     }
     self.dismissing = YES;
     LGBPhotoModel *model = self.items[self.currentPage];
-    CGRect rect = [model.smallImageView.superview convertRect:model.smallImageView.frame toView:[UIApplication sharedApplication].keyWindow];
+//    CGRect rect = [model.smallImageView.superview convertRect:model.smallImageView.frame toView:[UIApplication sharedApplication].keyWindow];
+    
+    CGRect rect = CGRectZero;
+    
+    if (model.smallImageView) {
+        rect = [model.smallImageView.superview convertRect:model.smallImageView.frame toView:[UIApplication sharedApplication].keyWindow];
+    }else{
+        rect = CGRectMake(CGRectGetMidX(self.bounds) - 10, CGRectGetMidY(self.bounds) - 10, 0, 0);
+    }
     
     LGBPhotoBrowserCell *cell = (LGBPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentPage inSection:0]];
     
     
     [UIApplication sharedApplication].statusBarHidden = NO;
     self.pageControl.alpha = 0;
+    self.pageLabel.alpha = 0;
     
     [UIView animateWithDuration:kAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         cell.imageView.frame = rect;
@@ -217,7 +240,20 @@ static NSString * const kFrameKey = @"frame";
     }];
 }
 
-#pragma mark - *********************** getters and setters ***********************
+-(void)setupPage:(NSInteger)page forPageLabel:(UILabel *)pageLabel
+{
+    pageLabel.text = [NSString stringWithFormat:@"%ld/%ld", page + 1, self.items.count];
+}
+
+#pragma mark - setter
+-(void)setShowPageLabel:(BOOL)showPageLabel
+{
+    _showPageLabel = showPageLabel;
+    self.pageControl.alpha = !showPageLabel;
+    self.pageLabel.alpha = showPageLabel;
+}
+
+#pragma mark - *********************** getters ***********************
 -(UICollectionView *)collectionView
 {
     if (_collectionView == nil) {
@@ -250,9 +286,24 @@ static NSString * const kFrameKey = @"frame";
         _pageControl.hidesForSinglePage = YES;
         _pageControl.pageIndicatorTintColor = [UIColor grayColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+        _pageControl.alpha = 0;
     }
     return _pageControl;
 }
+
+-(UILabel *)pageLabel
+{
+    if(_pageLabel == nil) {
+        _pageLabel = [UILabel new];
+        _pageLabel.backgroundColor = UIColor.clearColor;
+        _pageLabel.textColor = UIColor.whiteColor;
+        _pageLabel.font = [UIFont systemFontOfSize:15.0];
+        _pageLabel.textAlignment = NSTextAlignmentCenter;
+        _pageLabel.alpha = 0;
+    }
+    return _pageLabel;
+}
+
 
 -(NSMutableArray *)items
 {
