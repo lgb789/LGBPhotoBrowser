@@ -62,6 +62,9 @@
     CGFloat selfHeight = MIN(CGRectGetHeight(self.bounds), [UIScreen mainScreen].bounds.size.height);
     
     UIImage *img = self.imageView.imageView.image;
+    if (img == nil) {
+        return;
+    }
 //    DLog(@"big image-->%f,%f", img.size.width, img.size.height);
     
     CGFloat widthRatio = selfWidth / img.size.width;

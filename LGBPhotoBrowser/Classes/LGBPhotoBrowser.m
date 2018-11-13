@@ -219,8 +219,6 @@ static NSString * const kFrameKey = @"frame";
     
     if (model.smallImageView) {
         rect = [model.smallImageView.superview convertRect:model.smallImageView.frame toView:[UIApplication sharedApplication].keyWindow];
-    }else{
-        rect = CGRectMake(CGRectGetMidX(self.bounds) - 10, CGRectGetMidY(self.bounds) - 10, 0, 0);
     }
     
     LGBPhotoBrowserCell *cell = (LGBPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.currentPage inSection:0]];
@@ -231,8 +229,13 @@ static NSString * const kFrameKey = @"frame";
     self.pageLabel.alpha = 0;
     
     [UIView animateWithDuration:kAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        cell.imageView.frame = rect;
-        cell.imageView.imageView.frame = cell.imageView.bounds;
+        if (model.smallImageView) {
+            cell.imageView.frame = rect;
+            cell.imageView.imageView.frame = cell.imageView.bounds;
+        }else{
+            cell.alpha = 0;
+        }
+        
         self.collectionView.backgroundColor = [UIColor clearColor];
 
     } completion:^(BOOL finished) {
